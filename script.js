@@ -37,8 +37,10 @@ function runCommand() {
   document.getElementById("terminalInput").value = "";
 }
 
-
 function typeLine(text, outputElement, callback) {
+  const inputBox = document.getElementById("terminalInput");
+  inputBox.disabled = true;
+
   let i = 0;
   const interval = setInterval(() => {
     outputElement.textContent += text.charAt(i);
@@ -46,10 +48,13 @@ function typeLine(text, outputElement, callback) {
     if (i === text.length) {
       clearInterval(interval);
       outputElement.textContent += "\n";
+      inputBox.disabled = false;
+      inputBox.focus(); // Focus back after it's re-enabled
       if (callback) callback();
     }
   }, 30); // typing speed
 }
+
 // Run command on pressing Enter
 document.getElementById("terminalInput").addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
