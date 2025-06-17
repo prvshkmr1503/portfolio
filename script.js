@@ -7,19 +7,36 @@ function runCommand() {
   const output = document.getElementById("terminalOutput");
 
   typeLine(`> ${input}`, output, () => {
-    if (input === "hello") {
-      typeLine("Hello, developer!", output);
-    } else if (input === "clear") {
-      output.textContent = "";
-    } else if (input === "date") {
-      typeLine(new Date().toString(), output);
-    } else {
-      typeLine("Command not found.", output);
+    switch (input) {
+      case "hello":
+        typeLine("Hello, developer!", output);
+        break;
+      case "date":
+        typeLine(new Date().toString(), output);
+        break;
+      case "whoami":
+        typeLine("You are Parvesh Kumar — future top-level developer & hacker 🔥", output);
+        break;
+      case "sudo":
+        typeLine("⚠️ Access denied: you are not root (yet).", output);
+        break;
+      case "ipconfig":
+        typeLine("IPv4: 127.0.0.1 (localhost)", output);
+        break;
+      case "motivation":
+        typeLine("💡 You are not behind. You're in training. Legends are made in silence.", output);
+        break;
+      case "clear":
+        output.textContent = "";
+        break;
+      default:
+        typeLine("❌ Command not found.", output);
     }
   });
 
   document.getElementById("terminalInput").value = "";
 }
+
 
 function typeLine(text, outputElement, callback) {
   let i = 0;
