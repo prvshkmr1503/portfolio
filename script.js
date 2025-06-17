@@ -1,7 +1,5 @@
-alert("Welcome to my portfolio");
-
-function showmessage(){
-    document.getElementById("output").textContent="you clicked the button";
+function showMessage() {
+  document.getElementById("output").textContent = "You clicked the button!";
 }
 
 function runCommand() {
