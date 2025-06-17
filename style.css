@@ -30,3 +30,15 @@ li {
   font-size: 18px;
   margin-bottom: 5px;
 }
+
+#terminalOutput {
+  background-color: black;
+  color: #00ff00;
+  padding: 10px;
+  font-family: monospace;
+  height: 200px;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+  border-radius: 5px;
+  border: 1px solid #444;
+}
