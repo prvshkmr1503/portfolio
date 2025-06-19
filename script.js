@@ -26,13 +26,35 @@ function runCommand() {
       case "motivation":
         typeLine("💡 You are not behind. You're in training. Legends are made in silence.", output);
         break;
+      case "quote":
+        const quotes = [
+          "Push yourself, because no one else is going to do it for you.",
+          "Success is no accident. It is hard work, learning, and sacrifice.",
+          "Code is like humor. When you have to explain it, it’s bad.",
+          "You don’t have to be great to start, but you have to start to be great."
+        ];
+        const random = Math.floor(Math.random() * quotes.length);
+        typeLine("🧠 " + quotes[random], output);
+        break;
+      case "open github":
+        typeLine("Opening GitHub profile...", output, () => {
+          window.open("https://github.com/prvshkmr1503", "_blank");
+        });
+        break;
+      case "help":
+        typeLine("Available commands:\nhello, date, whoami, sudo, ipconfig, motivation, quote, open github, clear", output);
+        break;
       case "clear":
         output.textContent = "";
         break;
       default:
-        typeLine("❌ Command not found.", output);
+        typeLine("❌ Command not found. Type 'help' to see available commands.", output);
     }
   });
+
+  document.getElementById("terminalInput").value = "";
+}
+
 
   document.getElementById("terminalInput").value = "";
 }
