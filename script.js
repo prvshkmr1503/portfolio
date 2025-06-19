@@ -56,8 +56,6 @@ function runCommand() {
 }
 
 
-  document.getElementById("terminalInput").value = "";
-}
 
 function typeLine(text, outputElement, callback) {
   const inputBox = document.getElementById("terminalInput");
